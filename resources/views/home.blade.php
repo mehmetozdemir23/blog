@@ -1,12 +1,12 @@
 <x-layout>
     <section class="flex flex-col lg:flex-row justify-center h-full font-montserrat">
-        <div class="h-full pt-24 flex flex-col items-center">
-            <div class="flex text-gray-200 text-center mb-12">
-                <div class="text-6xl">
-                    Je suis<span class="text-personal-red"> Mehmet Ozdemir</span>.
+        <div class="h-full pt-24 flex flex-col items-center space-y-12">
+            <div class="flex text-gray-200 text-center">
+                <div class="text-6xl text-personal-red">
+                    Mehmet Ozdemir
                 </div>
             </div>
-            <div class="text-gray-400 text-lg mb-24">Développeur web back-end</div>
+            <div class="text-gray-400 text-2xl md:text-3xl">Développeur web back-end</div>
             <div class="flex space-x-6 text-gray-200">
                 <x-social-media-link icon="fab fa-facebook-f" />
                 <x-social-media-link icon="fab fa-twitter" />
@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="hidden lg:block w-96 border-2 border-white"></div>
+        <div class="hidden w-96 border-2 border-white"></div>
 
 
     </section>
