@@ -65,7 +65,7 @@
                         {{ article.title }}
                     </h1>
                 </header>
-                <img :src="article.imageFile" alt="article image" class="rounded-lg">
+                <img v-if="article.image" :src="article.image" alt="article image" class="rounded-lg">
                 <p class="mt-4 text-lg text-gray-700">{{ article.content }}</p>
             </article>
         </div>

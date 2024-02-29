@@ -13,8 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Storage::deleteDirectory('article_images');
-
         $this->call(ArticleSeeder::class);
     }
 }

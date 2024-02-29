@@ -30,16 +30,7 @@ class Article extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-
-    public function imageFile()
-    {
-        $imageFilePath = "article_images/{$this->image}";
-        $imageFileContent = base64_encode(Storage::get($imageFilePath));
-        $imageFileMimeType = Storage::mimeType($imageFilePath);
-
-        return "data:{$imageFileMimeType};base64,{$imageFileContent}";
-    }
-
+    
     protected function createdAt(): Attribute
     {
         return Attribute::make(

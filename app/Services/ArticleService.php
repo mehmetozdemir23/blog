@@ -16,25 +16,11 @@ class ArticleService
         $article->author()->associate(auth()->user());
 
         $article->save();
-
-        $imageFile = $attributes['imageFile'];
-
-        if ($imageFile) {
-            $article->image = basename($imageFile->storeAs('article_images', $article->id . '.' . $imageFile->extension()));
-        }
-
-        $article->save();
     }
 
     public function updateArticle(Article $article, array $attributes): void
     {
         $article->update($attributes);
-
-        $newImage = $attributes['newImage'];
-        if ($newImage) {
-            Storage::delete("article_images/$article->image");
-            $article->image = basename($newImage->storeAs('article_images', $article->id . '.' . $newImage->extension()));
-        }
 
         $article->save();
     }

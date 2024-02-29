@@ -15,10 +15,11 @@ class ArticleSeeder extends Seeder
     public function run(): void
     {
         $user = User::create([
-            'name' => 'Mehmet Ozdemir',
-            'email' => 'm.ozd23@gmail.com',
+            'name' => 'Test User',
+            'email' => 'testuser@example.com',
             'password' => bcrypt('password')
         ]);
+
         Article::factory()->create(['user_id' => $user->id]);
         Article::factory(10)
             ->create();

@@ -25,7 +25,7 @@ class StoreArticleRequest extends FormRequest
             'title' => ['required', 'string', 'min:10', 'max:255', 'unique:articles,title'],
             'content' => ['required', 'string', 'min:10', 'max:5000'],
             'category' => ['required', 'string', 'min:3', 'max:255'],
-            'imageFile' => ['nullable', 'image', 'mimes:jpeg,png', 'max:1000']
+            'image' => ['nullable', 'url']
         ];
     }
 
@@ -48,10 +48,7 @@ class StoreArticleRequest extends FormRequest
             'category.min' => 'The category must be at least :min characters.',
             'category.max' => 'The category must not be greater than :max characters.',
 
-            'imageFile.required' => 'An image is required for the article.',
-            'imageFile.image' => 'The selected file must be an image.',
-            'imageFile.mimes' => 'The image must be in JPEG or PNG format.',
-            'imageFile.max' => 'The image size must not exceed :max kilobytes.',
+            'image.url' => 'The image must be a valid URL.',
         ];
     }
 }

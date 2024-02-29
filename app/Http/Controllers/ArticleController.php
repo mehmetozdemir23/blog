@@ -45,15 +45,11 @@ class ArticleController extends Controller
     {
         $article->load('author:id,name');
 
-        $article->setAttribute('imageFile', $article->imageFile());
-
         return inertia('Article/Show', compact('article'));
     }
 
     public function edit(Article $article)
     {
-        $article->setAttribute('imageFile', $article->imageFile());
-
         return inertia('Article/Edit', compact('article'));
     }
 
