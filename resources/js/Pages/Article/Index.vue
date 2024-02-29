@@ -1,5 +1,6 @@
 <template>
     <AuthenticatedLayout>
+        <Alert :message="page.props.flash.message"/>
         <section class="bg-white">
             <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                 <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
@@ -39,15 +40,18 @@
 
 <script setup>
 import { ref } from 'vue';
-import { Link, router } from '@inertiajs/vue3';
+import { Link, router, usePage } from '@inertiajs/vue3';
 import ArticleCard from '@/Components/ArticleCard.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import Pagination from '@/Components/Pagination.vue';
+import Alert from '@/Components/Alert.vue';
 
 const props = defineProps({
     articles: Object,
     categories: Object,
 });
+
+const page = usePage();
 
 const selectedSort = ref(route().params.sort || 'newest');
 const selectedCategory = ref(route().params.category || 'all');

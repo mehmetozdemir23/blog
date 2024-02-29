@@ -63,7 +63,7 @@ class ArticleController extends Controller
 
         $this->articleService->storeArticle($validatedData);
 
-        return to_route('articles.index');
+        return to_route('articles.index')->with('message', 'Article published successfully!');
     }
 
     public function update(UpdateArticleRequest $request, Article $article)
@@ -83,6 +83,6 @@ class ArticleController extends Controller
 
         $this->articleService->destroyArticle($article);
 
-        return to_route('articles.index');
+        return to_route('articles.index')->with('message', 'Article deleted succesfully!');
     }
 }
