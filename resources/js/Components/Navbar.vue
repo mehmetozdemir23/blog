@@ -13,7 +13,7 @@
                 </button>
                 <ul v-if="menuActive"
                     class="absolute -bottom-2 right-0 translate-y-full shadow-lg shadow-gray-200 text-sm divide-y font-semibold">
-                    <li class="w-full">
+                    <li class="w-max">
                         <Link :href="route('logout')" method="post" as="button" type="button"
                             class="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-200">
                         <svg class="h-5 w-5 mr-1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
