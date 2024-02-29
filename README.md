@@ -1,10 +1,34 @@
 # Project Title
 
-Short description or tagline about your project.
+Technical test blog project
 
-## Overview
+## Key Features
 
-Provide a brief overview of your project. Mention its purpose, key features, and any other relevant information.
+### Article CRUD Operations
+
+1. **Create Article:**
+   - Easily create new articles by providing a title, content, and optional metadata.
+   
+2. **Read Article:**
+   - Browse through a list of articles with details like title, author, publication date, and a content snippet.
+   - View the complete content of an article by clicking on its title.
+
+3. **Update Article:**
+   - Seamlessly edit existing articles, updating the title, content, and metadata.
+
+4. **Delete Article:**
+   - Provide the option to delete articles, ensuring data integrity.
+
+### Enhanced Functionality
+
+5. **Sort Articles:**
+   - Sort articles based on publication date.
+
+6. **Filter Articles:**
+   - Efficiently filter articles based on categories.
+
+7. **Paginate Articles:**
+   - Divide the list of articles into pages to improve loading times and enhance user experience.
 
 ## Prerequisites
 
