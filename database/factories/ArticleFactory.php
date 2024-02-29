@@ -22,6 +22,7 @@ class ArticleFactory extends Factory
             'title' => fake()->sentence(),
             'content' => fake()->paragraph(20),
             'category' => fake()->word(),
+            'created_at' => fake()->dateTime(),
             'user_id' => User::factory(),
         ];
     }
