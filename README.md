@@ -1,4 +1,4 @@
-# Technical Test Blog Project
+# Blog Project
 
 ## Key Features
 
