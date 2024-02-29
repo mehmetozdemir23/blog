@@ -8,10 +8,16 @@
                     </h2>
                 </div>
                 <div class="flex justify-between items-center mb-4">
-                    <div class="flex items-center space-x-4">
-                        <select id="sort" class="py-2 border border-gray-300 rounded" @change="sortArticles">
-                            <option value="newest" :selected="isSelectedSort('newest')">Newest</option>
-                            <option value="oldest" :selected="isSelectedSort('oldest')">Oldest</option>
+                    <div class="flex items-center space-x-2">
+                        <select id="sort" v-model="selectedSort" class="py-2 border border-gray-300 rounded"
+                            @change="sortArticles">
+                            <option value="newest" selected>Newest</option>
+                            <option value="oldest">Oldest</option>
+                        </select>
+                        <select id="category" v-model="selectedCategory" class="py-2 border border-gray-300 rounded"
+                            @change="filterArticlesByCategory">
+                            <option value="all">All category</option>
+                            <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
                         </select>
                     </div>
                     <Pagination :links="articles.links" />
@@ -32,21 +38,25 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
 import ArticleCard from '@/Components/ArticleCard.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import Pagination from '@/Components/Pagination.vue';
 
-defineProps({
-    articles: Object
+const props = defineProps({
+    articles: Object,
+    categories: Object,
 });
 
-function sortArticles(event) {
-    const sort = event.target.value;
-    router.get(route('articles.index', { sort }));
+const selectedSort = ref(route().params.sort || 'newest');
+const selectedCategory = ref(route().params.category || 'all');
+
+function sortArticles() {
+    router.get(route('articles.index', { sort: selectedSort.value }));
 }
 
-function isSelectedSort(sort) {
-    return route().params.sort === sort;
+function filterArticlesByCategory() {
+    router.get(route('articles.index', { category: selectedCategory.value }));
 }
 </script>

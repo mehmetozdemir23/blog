@@ -54,4 +54,11 @@ class ArticleService
             $query->oldest();
         }
     }
+
+    public function filterArticlesByCategory($query, $category)
+    {
+        $query->when($category && $category !== 'all', function ($query) use ($category) {
+            $query->where('category', $category);
+        });
+    }
 }

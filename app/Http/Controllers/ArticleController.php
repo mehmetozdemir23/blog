@@ -22,11 +22,18 @@ class ArticleController extends Controller
 
         $articlesQuery = Article::with('author:id,name');
 
-        $this->articleService->sortArticles($articlesQuery,$request->query('sort'));
-        
+        $this->articleService->sortArticles($articlesQuery, $request->query('sort'));
+
+        $this->articleService->filterArticlesByCategory($articlesQuery, $request->query('category'));
+
         $articles = $articlesQuery->paginate(7)->withQueryString();
 
-        return inertia('Article/Index', compact('articles'));
+        $categories = Article::pluck('category')->unique();
+
+        return inertia('Article/Index', [
+            'articles' => $articles,
+            'categories' => $categories
+        ]);
     }
 
     public function create()
