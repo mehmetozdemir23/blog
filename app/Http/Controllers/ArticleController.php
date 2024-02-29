@@ -16,9 +16,15 @@ class ArticleController extends Controller
     public function __construct(public ArticleService $articleService)
     {
     }
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::with('author:id,name')->latest()->paginate(7);
+        $request->validate(['sort' => ['string', 'in:newest,oldest']]);
+
+        $articlesQuery = Article::with('author:id,name');
+
+        $this->articleService->sortArticles($articlesQuery,$request->query('sort'));
+        
+        $articles = $articlesQuery->paginate(7)->withQueryString();
 
         return inertia('Article/Index', compact('articles'));
     }

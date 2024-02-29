@@ -46,4 +46,12 @@ class ArticleService
         $article->delete();
     }
 
+    public function sortArticles($query, $sort = 'newest')
+    {
+        if ($sort === 'newest') {
+            $query->latest();
+        } else if ($sort === 'oldest') {
+            $query->oldest();
+        }
+    }
 }
