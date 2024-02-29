@@ -3,12 +3,11 @@
 use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
-Route::inertia('/', 'Auth/Login');
-
 Route::middleware('auth')->group(function () {
-    Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
+    Route::get('/', fn() => to_route('articles.index'));
 
     Route::group(['prefix' => 'articles', 'as' => 'articles.'], function () {
+        Route::get('', [ArticleController::class, 'index'])->name('index');
         Route::get('create', [ArticleController::class, 'create'])->name('create');
         Route::post('', [ArticleController::class, 'store'])->name('store');
         Route::get('{article:slug}', [ArticleController::class, 'show'])->name('show');
