@@ -18,7 +18,7 @@ Ensure you have the following installed:
 Follow these steps to set up the project locally:
 
 ```bash
-git clone https://github.com/mehmetozdemir/blog.git
+git clone https://github.com/mehmetozdemir23/blog.git
 cd blog
 composer install
 npm install
