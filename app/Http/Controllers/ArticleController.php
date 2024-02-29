@@ -4,18 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
-use App\Http\Resources\ArticleResource;
 use App\Models\Article;
 use App\Services\ArticleService;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-
     public function __construct(public ArticleService $articleService)
     {
     }
+
     public function index(Request $request)
     {
         $request->validate(['sort' => ['string', 'in:newest,oldest']]);
@@ -32,7 +30,7 @@ class ArticleController extends Controller
 
         return inertia('Article/Index', [
             'articles' => $articles,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 

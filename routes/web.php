@@ -4,7 +4,7 @@ use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', fn() => to_route('articles.index'));
+    Route::get('/', fn () => to_route('articles.index'));
 
     Route::group(['prefix' => 'articles', 'as' => 'articles.'], function () {
         Route::get('', [ArticleController::class, 'index'])->name('index');
@@ -17,4 +17,4 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

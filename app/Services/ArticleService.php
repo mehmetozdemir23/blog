@@ -5,10 +5,8 @@ namespace App\Services;
 use App\Models\Article;
 use Illuminate\Support\Facades\Storage;
 
-
 class ArticleService
 {
-
     public function storeArticle(array $attributes): void
     {
         $article = new Article($attributes);

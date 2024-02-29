@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Article;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ArticleSeeder extends Seeder
@@ -17,7 +16,7 @@ class ArticleSeeder extends Seeder
         $user = User::create([
             'name' => 'Test User',
             'email' => 'testuser@example.com',
-            'password' => bcrypt('password')
+            'password' => bcrypt('password'),
         ]);
 
         Article::factory()->create(['user_id' => $user->id]);
